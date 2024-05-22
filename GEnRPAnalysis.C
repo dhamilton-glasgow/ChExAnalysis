@@ -90,8 +90,8 @@ void GEnRPAnalysis( Int_t run_no = 9000 ) {
   TChain* C = new TChain("TSkim");
 
   if( run_no == 9000 ) {
-    C->Add("OUT_DIR/skim_genrp_3000.root");
-    C->Add("OUT_DIR/skim_genrp_4000.root");
+//     C->Add("OUT_DIR/skim_genrp_3000.root");
+//     C->Add("OUT_DIR/skim_genrp_4000.root");
     C->Add("OUT_DIR/skim_genrp_5000.root");
     C->Add("OUT_DIR/skim_genrp_6000.root");
     C->Add("OUT_DIR/skim_genrp_7000.root");
@@ -147,11 +147,7 @@ void GEnRPAnalysis( Int_t run_no = 9000 ) {
 
   const Int_t nphibins = 36;
 
-  TFile *outfile;
-  if( run_no == 1000 )
-    outfile = new TFile(Form("hist/lh2/hist_genrp_%i.root",run_no),"RECREATE");
-  else
-    outfile = new TFile(Form("hist/ld2/hist_genrp_%i.root",run_no),"RECREATE");
+  TFile *outfile = new TFile(Form("hist/hist_genrp_%i.root",run_no),"RECREATE");
   
   Double_t Mp        = 0.93827;
   Double_t Eb        = 4.3;  

@@ -36,7 +36,7 @@ Int_t rebin = 4;
 
 void PlotGEnRP( Int_t run_no = 9000 ) {
 
-  TFile *f = new TFile(Form("hist/ld2/hist_genrp_%i.root",run_no),"READ");
+  TFile *f = new TFile(Form("hist/hist_genrp_%i.root",run_no),"READ");
 
   Double_t pcent   = 2.122;  
   Double_t pres    = 0.02;   
@@ -718,7 +718,7 @@ void PlotGEnRP( Int_t run_no = 9000 ) {
 
   }
 
-  gSystem->Exec(Form("pdfunite  kinem*.pdf pdf/ld2/plots_genrp-%d.pdf", run_no));  
+  gSystem->Exec(Form("pdfunite  kinem*.pdf pdf/plots_genrp-%d.pdf", run_no));  
   gSystem->Exec("rm  kinema*.pdf");  
 
   int run = -1;
@@ -736,7 +736,7 @@ void PlotGEnRP( Int_t run_no = 9000 ) {
 
   if( run != -1 && charge != -1 && charge != 0 ) {
     ofstream FileYield;
-    FileYield.open("log/ld2farm/RunYieldGEnRP.csv", ios::app);
+    FileYield.open("log/RunYieldGEnRP.csv", ios::app);
     FileYield << run_no << "," << nphcal/charge << "," << nnhcal/charge <<  "," << (nphcal/charge)/1.7e6 << "," 
 	      << npgem/charge << "," << npgem/nphcal << "," << (npgem/nphcal)*((nphcal/charge)/1.7e6) << "," << nchex/charge << endl;
     FileYield.close();
