@@ -1,0 +1,15 @@
+# Editor lint
+.#*
+*~
+*.sw?
+*/.#*
+*/*~
+*/*.sw?
+# macOS pollution
+.DS_Store
+*/DS_Store
+
+log/
+pdf/
+hist/
+OUT_DIR/
